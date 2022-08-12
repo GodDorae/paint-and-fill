@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint and Fill</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <canvas></canvas>
+    <div>
+        <label for="line-width">Line width: </label>
+        <input id="line-width" name="line-width" type="range" min="1" max="10" value="5" step="0.1"/>
+    </div>
+    <div>
+        <label for="color">Color:</label>
+        <input id="color" name="color" type="color"/>
+    </div>
+    <div class="buttons">
+        <span id="paint-or-fill"></span>
+        <span id="erase">Erase</span>
+        <span id="clear">Clear</span>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

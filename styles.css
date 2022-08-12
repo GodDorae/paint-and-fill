@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+canvas {
+    width: 800px;
+    height: 800px;
+    border: 5px solid black;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.buttons span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+}
+
+.buttons span:hover {
+    background-color: gray;
+}
