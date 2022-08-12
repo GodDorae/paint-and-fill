@@ -36,3 +36,4 @@ Nothing will be left when users click clear button.
 
 ----------
 ### I hope users could enjoy this application! :)
+### (This application is optimized for desktop, laptop environment)
