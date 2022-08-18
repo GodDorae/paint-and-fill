@@ -11,6 +11,7 @@ const save = document.getElementById("save");
 
 canvas.width = 800;
 canvas.height = 800;
+canvas.style.backgroundColor = "white";
 
 context.lineWidth = 5;
 context.lineCap = "round";
