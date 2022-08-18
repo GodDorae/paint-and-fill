@@ -5,11 +5,15 @@ const color = document.getElementById("color");
 const paintOrFill = document.getElementById("paint-or-fill");
 const erase = document.getElementById("erase");
 const clear = document.getElementById("clear");
+const file = document.getElementById("file");
+const text = document.getElementById("text");
+const save = document.getElementById("save");
 
 canvas.width = 800;
 canvas.height = 800;
 
-context.lineWidth = 2;
+context.lineWidth = 5;
+context.lineCap = "round";
 
 // Beautiful Lines
 // const colors = [
@@ -62,7 +66,7 @@ function startDoing() {
   isClicked = true;
 
   if (defaultOption === "Fill") {
-    canvas.style.backgroundColor = `${color.value}`
+    canvas.style.backgroundColor = `${color.value}`;
   }
 
   if (isErasing) {
@@ -106,15 +110,46 @@ function eraseHandler() {
 }
 
 function clearHandler() {
-    canvas.style.backgroundColor = "white";
-    context.beginPath();
-    context.clearRect(0, 0, 800, 800);
+  canvas.style.backgroundColor = "white";
+  context.beginPath();
+  context.clearRect(0, 0, 800, 800);
+}
+
+function fileChangeHandler(event) {
+  const fileForUrl = event.target.files[0];
+  const url = URL.createObjectURL(fileForUrl);
+  const image = new Image();
+  image.src = url;
+  image.onload = function () {
+    context.drawImage(image, 0, 0, 800, 800);
+    file.value = null;
+  };
+}
+
+function textWritingHandler(event) {
+  const writenText = text.value;
+  if (writenText !== "") {
+    context.save();
+    context.lineWidth = 1;
+    context.font = "48px sans-serif";
+    context.fillText(writenText, event.offsetX, event.offsetY);
+    context.restore();
+  }
+}
+
+function fileSaveHandler() {
+  const url = canvas.toDataURL();
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "myDrawing.png";
+  a.click();
 }
 
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startDoing);
 canvas.addEventListener("mouseup", cancelDoing);
 canvas.addEventListener("mouseleave", cancelDoing);
+canvas.addEventListener("dblclick", textWritingHandler);
 
 lineWidth.addEventListener("change", lineWidthHandler);
 
@@ -125,3 +160,7 @@ paintOrFill.addEventListener("click", paintOrFillHandler);
 erase.addEventListener("click", eraseHandler);
 
 clear.addEventListener("click", clearHandler);
+
+file.addEventListener("change", fileChangeHandler);
+
+save.addEventListener("click", fileSaveHandler);

@@ -1,36 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: gainsboro;
 }
 
 canvas {
-    width: 800px;
-    height: 800px;
-    border: 5px solid black;
+  width: 800px;
+  height: 800px;
+  border: 5px solid black;
+  border-radius: 20px;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
 }
 
 .buttons span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.buttons span:hover {
+  background-color: gray;
+}
+
+.clean-div {
+  width: 800px;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.clean-div div {
+  margin-left: 40px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.file-button {
+    padding: 5px;
+    background-color: white;
     border: 1px solid black;
     border-radius: 10px;
     transition: all 0.2s linear;
     cursor: pointer;
 }
 
-.buttons span:hover {
+.file-button:hover {
     background-color: gray;
+  }
+
+#file{
+    display: none;
 }
